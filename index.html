@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Tracking test page</title>
+<!-- PUSHBUTTON SCRIPT -->
+<style>
+body{font:18px/1.5 system-ui,sans-serif;max-width:620px;margin:0 auto;padding:40px 20px;color:#111}
+button,input{font:inherit;padding:10px 14px}
+input{border:1px solid #bbb;border-radius:8px;width:100%;box-sizing:border-box;margin:6px 0 12px}
+button{border:0;border-radius:8px;background:#111;color:#fff;cursor:pointer}
+.note{color:#555;font-size:15px}
+form{margin-top:32px}
+</style>
+</head>
+<body>
+<h1>Tracking test page</h1>
+<p class="note">A test page for PushButton's tracking script. It's on a different website from PushButton on purpose. Nothing here is a real offer.</p>
+<p><button id="joined" type="button">Joined the webinar</button></p>
+<form action="thanks.html">
+<label for="email">Email</label>
+<input id="email" type="email" name="email" required placeholder="test@example.com">
+<button type="submit">Sign up</button>
+</form>
+<script>
+document.getElementById("joined").addEventListener("click", function () {
+  if (window.pushbutton) pushbutton("track", "webinar_joined", { topic: "ads" });
+  this.textContent = "Reported";
+});
+</script>
+</body>
+</html>
